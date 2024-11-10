@@ -38,6 +38,6 @@ public class ComputerStore {
     //methods
     public void addComputer(Computers computer) {
         computers.add(computer);
-        sysot.out.println("Computer"+computer.getComputerBrand()+" added successfully.");
+        System.out.println("Computer"+computer.getComputerBrand()+" added successfully.");
     }
 }
