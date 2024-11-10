@@ -34,6 +34,13 @@ public class ComputerStore {
     public void setTributaryId(int tributaryId) {
         this.tributaryId = tributaryId;
     }
+    public List<Computers> getComputers() {
+        return computers;
+    }
+    public void setComputers(List<Computers> computers) {
+        this.computers = computers;
+    }
+    
 
     //methods
     public void addComputer(Computers computer) {
@@ -64,4 +71,5 @@ public class ComputerStore {
             }
         }
     }
+
 }

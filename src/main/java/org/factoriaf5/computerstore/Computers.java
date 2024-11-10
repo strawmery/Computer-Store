@@ -18,6 +18,10 @@ public class Computers {
         this.operativeSystem = operativeSystem;
         this.price = price;
     }
+
+    public Computers() {
+        
+    }
     // Getters and Setters
     public int getComputerId() {
         return computerId;
