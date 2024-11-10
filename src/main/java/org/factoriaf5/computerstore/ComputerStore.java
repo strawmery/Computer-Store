@@ -34,4 +34,10 @@ public class ComputerStore {
     public void setTributaryId(int tributaryId) {
         this.tributaryId = tributaryId;
     }
+
+    //methods
+    public void addComputer(Computers computer) {
+        computers.add(computer);
+        sysot.out.println("Computer"+computer.getComputerBrand()+" added successfully.");
+    }
 }
