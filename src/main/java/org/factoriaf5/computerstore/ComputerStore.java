@@ -38,6 +38,30 @@ public class ComputerStore {
     //methods
     public void addComputer(Computers computer) {
         computers.add(computer);
-        System.out.println("Computer"+computer.getComputerBrand()+" added successfully.");
+        System.out.println("Computer"+computer.getComputerId()+" added successfully.");
+    }
+
+    public void removeComputer(int id) {
+        computers.removeIf(computer -> computer.getComputerId() == id);
+        System.out.println("Computer with id "+id+" removed successfully.");
+    }
+
+    public void findComputerById(int id) {
+        for (Computers computer : computers) {
+            if(id == computer.getComputerId()) {
+                System.out.println("Computer found: "+computer);
+                return;
+            }
+        }
+    }
+
+    public void listComputers() {
+        if(computers.isEmpty()) {
+            System.out.println("No computers found.");
+        }else{
+            for (Computers computer : computers) {
+                System.out.println(computer);
+            }
+        }
     }
 }
