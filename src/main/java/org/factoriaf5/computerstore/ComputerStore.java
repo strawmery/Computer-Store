@@ -9,11 +9,15 @@ public class ComputerStore {
     private int tributaryId;
     private List<Computers> computers;
 
-    public ComputerStore(String storeName, String propietary, int tributaryId, List<Computers> computers) {
+    public ComputerStore(String storeName, String propietary, int tributaryId) {
         this.storeName = storeName;
         this.propietary = propietary;
         this.tributaryId = tributaryId;
         this.computers = new ArrayList<>();
+    }
+
+    public ComputerStore() {
+    
     }
 
     public String getStoreName() {
@@ -45,21 +49,19 @@ public class ComputerStore {
     //methods
     public void addComputer(Computers computer) {
         computers.add(computer);
-        System.out.println("Computer"+computer.getComputerId()+" added successfully.");
     }
 
     public void removeComputer(int id) {
         computers.removeIf(computer -> computer.getComputerId() == id);
-        System.out.println("Computer with id "+id+" removed successfully.");
     }
 
-    public void findComputerById(int id) {
+    public Computers findComputerById(int id) {
         for (Computers computer : computers) {
             if(id == computer.getComputerId()) {
-                System.out.println("Computer found: "+computer);
-                return;
+                return computer;
             }
         }
+        return null;
     }
 
     public void listComputers() {
