@@ -1,0 +1,20 @@
+classDiagram
+    class Tienda {
+        -String nombre
+        -String propietario
+        -String identificadorTributario
+        -List<Computador> inventario
+        +agregarComputador(Computador computador)
+        +eliminarComputador(String marca)
+        +buscarComputador(String marca)
+        +listarComputadores()
+    }
+    class Computador {
+        -String id
+        -String marca
+        -int cantidadMemoria
+        -String caracteristicasProcesador
+        -String sistemaOperativo
+        -double precio
+    }
+    Tienda "1" --o "*" Computador : contiene
