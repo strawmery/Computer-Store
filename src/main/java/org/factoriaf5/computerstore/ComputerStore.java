@@ -64,14 +64,8 @@ public class ComputerStore {
         return null;
     }
 
-    public void listComputers() {
-        if(computers.isEmpty()) {
-            System.out.println("No computers found.");
-        }else{
-            for (Computers computer : computers) {
-                System.out.println(computer);
-            }
-        }
+    public List<Computers> listComputers() {
+        return new ArrayList<>(computers);
     }
 
 }

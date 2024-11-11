@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 public class ComputerStoreTests {
@@ -68,11 +70,10 @@ public class ComputerStoreTests {
         ComputerStore computerStore = new ComputerStore(null, null, 0);
         
         Computers computer1 = new Computers(1,"Lenovo",16, "Intel core i5", "Windows 10",300);
-
+        computerStore.addComputer(computer1);
         computerStore.removeComputer(1);
 
         assertEquals(0, computerStore.getComputers().size());
-        assertEquals(null, computerStore.getComputers().get(0));
     }
     @Test
     void TestComputerStoreFindComputerById() {
@@ -80,10 +81,25 @@ public class ComputerStoreTests {
         
         Computers computer1 = new Computers(1,"Lenovo",16, "Intel core i5", "Windows 10",300);
         Computers computer2 = new Computers(2,"HP",32, "Intel core i7", "Windows 11",1000);
+        computerStore.addComputer(computer1);
+        computerStore.addComputer(computer2);
         computerStore.findComputerById(1);
 
         assertEquals(computer1, computerStore.getComputers().get(0));
         assertEquals(computer2, computerStore.getComputers().get(1));
         assertEquals(null, computerStore.findComputerById(3));
+    }
+    @Test
+    void TestComputerStoreListComputers(){
+        ComputerStore computerStore = new ComputerStore(null, null, 0);
+        Computers computer1 = new Computers(1, "dell", 16, "Intel i7", "Windows 10", 500);
+        Computers computer2 = new  Computers(2, "HP", 32, "AMD Ryzen 5", "Windows 11", 700);
+        computerStore.addComputer(computer1);
+        computerStore.addComputer(computer2);
+        List<Computers> list = computerStore.listComputers();
+
+        assertEquals(2, list.size());
+        assertTrue(list.contains(computer1));
+        assertTrue(list.contains(computer2));
     }
 }
